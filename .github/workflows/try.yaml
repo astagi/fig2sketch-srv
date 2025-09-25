@@ -29,7 +29,7 @@ jobs:
         run: wget "https://drive.usercontent.google.com/uc?id=1HfgMF62Gx8QT_autiDarRsZ07wPAgHPC&export=download" -O files.zip && ls -l && unzip ./files.zip && mv files source
       - name: Install dependencies
         shell: bash
-        run: pip install "fig2sketch[fast]" && pip install certifi
+        run: pip3 install "fig2sketch[fast]" && pip3 install certifi
       - name: Start conversion
         shell: bash
         run: python convert.py
