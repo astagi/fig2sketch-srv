@@ -36,3 +36,11 @@ jobs:
       - name: Show converted Sketch files
         shell: bash
         run: ls -l dist
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: './source/*.fig,./dist/*.sketch'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Latest
+          allowUpdates: true
+          draft: true
+          omitBodyDuringUpdate: true
