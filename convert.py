@@ -10,7 +10,7 @@ SOURCE_DIR = "source"
 DIST_DIR = "dist"
 
 threads = []
-MAX_PARALLEL_THREADS = multiprocessing.cpu_count()
+MAX_PARALLEL_THREADS = multiprocessing.cpu_count() / 2
 thread_window = 0
 
 def convert_figma_to_sketch(source, dest):
