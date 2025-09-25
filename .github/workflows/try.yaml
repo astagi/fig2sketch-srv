@@ -41,6 +41,4 @@ jobs:
           artifacts: './source/*.fig,./dist/*.sketch'
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Latest
-          allowUpdates: true
           draft: true
-          omitBodyDuringUpdate: true
