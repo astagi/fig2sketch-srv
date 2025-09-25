@@ -26,7 +26,7 @@ jobs:
         run: apt install unzip
       - name: Download Figma zip
         shell: bash
-        run: wget -N https://drive.usercontent.google.com/uc?id=1HfgMF62Gx8QT_autiDarRsZ07wPAgHPC&export=download -O files.zip 2>&1  | grep "not retrieving" 2>&1 > /dev/null || unzip files.zip && mv files source
+        run: wget -N https://drive.usercontent.google.com/uc?id=1HfgMF62Gx8QT_autiDarRsZ07wPAgHPC&export=download -O ./files.zip 2>&1  | grep "not retrieving" 2>&1 > /dev/null || unzip ./files.zip && mv files source
       - name: Install dependencies
         shell: bash
         run: pip install "fig2sketch[fast]" && pip install certifi
