@@ -1,0 +1,2 @@
+fig2sketch==0.4.4
+certifi==2025.8.3
