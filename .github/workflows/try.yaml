@@ -41,3 +41,4 @@ jobs:
           artifacts: './source/*.fig,./dist/*.sketch'
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
+          tag: 'latest-draft'
