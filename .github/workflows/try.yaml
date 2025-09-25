@@ -1,0 +1,27 @@
+name: Testing script on a GH action
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: nucypher/rust-python:3.12.11
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+      - name: Download Figma zip
+        shell: bash
+        run: wget -N https://drive.usercontent.google.com/uc?id=1HfgMF62Gx8QT_autiDarRsZ07wPAgHPC&export=download -O files.zip 2>&1  | grep "not retrieving" 2>&1 > /dev/null || unzip files.zip && mv files source
+      - name: Install dependencies
+        shell: bash
+        run: pip install "fig2sketch[fast]" && pip install certifi
+      - name: Start conversion
+        shell: bash
+        run: python convert.py
+      - name: Show converted Sketch files
+        shell: bash
+        run: ls -l dist
