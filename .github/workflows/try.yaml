@@ -13,6 +13,14 @@ jobs:
         with:
           fetch-depth: 0
           ref: main
+      - name: Fixup git permissions
+        # https://github.com/actions/checkout/issues/766
+        shell: bash
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: git config
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - name: Download Figma zip
         shell: bash
         run: wget -N https://drive.usercontent.google.com/uc?id=1HfgMF62Gx8QT_autiDarRsZ07wPAgHPC&export=download -O files.zip 2>&1  | grep "not retrieving" 2>&1 > /dev/null || unzip files.zip && mv files source
