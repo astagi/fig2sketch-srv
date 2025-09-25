@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: nucypher/rust-python:3.12.11
+      options: --user root
     permissions:
       contents: write
     steps:
